@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Build') {
             steps {
                 sh '/home/tounga/maven3/bin/mvn clean install'
             }
