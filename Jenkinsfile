@@ -4,10 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '/home/tounga/maven3/bin/mvn clean install'
-            }
-            steps {
-                sh '/home/tounga/maven3/bin/mvn clean install'
-            }
+                sh '/home/tounga/maven3/bin/mvn test'
+            }           
         }
     }
 }
