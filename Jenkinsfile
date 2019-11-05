@@ -1,10 +1,14 @@
 pipeline {
 agent any
 stages{
-       
+       def mvnHome
+   stage('Checkout') { // for display purposes
+      
+      git 'https://github.com/zikou-2009/springmvc.git'
+     mvnHome = tool 'M3'
+   }
   stage('Build'){
     steps{
-           mvnHome = tool 'M3'
       withEnv(["MVN_HOME=$mvnHome"]) {
       sh '"$MVN_HOME/bin/mvn" clean install'
       }
