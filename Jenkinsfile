@@ -1,10 +1,16 @@
 pipeline {
 agent any
+ environment {
+   mvnHome = tool 'M3'
+    }
 stages{
+   
   stage('Build'){
     steps{
-    sh '/home/tounga/maven3/bin/mvn clean install'
+      withEnv(["MVN_HOME=$mvnHome"]) {
+      sh '"$MVN_HOME/bin/mvn" clean install'
+      }
     }
   }
-}
+  }
 }
