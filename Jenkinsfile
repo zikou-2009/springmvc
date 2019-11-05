@@ -2,10 +2,11 @@ pipeline {
 agent any
 stages{
        def mvnHome
-   stage('Checkout') { // for display purposes
-      
+   stage('preparation') { // for display purposes
+       steps{
       git 'https://github.com/zikou-2009/springmvc.git'
      mvnHome = tool 'M3'
+              }
    }
   stage('Build'){
     steps{
