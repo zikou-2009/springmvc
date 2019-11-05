@@ -12,8 +12,7 @@ stages{
   }
   stage('Test'){
     steps{
-           mvnHome = tool 'M3'
-   withEnv(["MVN_HOME=$mvnHome"]) {
+        withEnv(["MVN_HOME=$mvnHome"]) {
       sh '"$MVN_HOME/bin/mvn" test'
       }
     }
