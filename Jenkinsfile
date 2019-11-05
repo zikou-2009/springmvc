@@ -1,9 +1,10 @@
 pipeline {
 agent any
 stages{
-       mvnHome = tool 'M3'
+       
   stage('Build'){
     steps{
+           mvnHome = tool 'M3'
       withEnv(["MVN_HOME=$mvnHome"]) {
       sh '"$MVN_HOME/bin/mvn" clean install'
       }
@@ -11,6 +12,7 @@ stages{
   }
   stage('Test'){
     steps{
+           mvnHome = tool 'M3'
    withEnv(["MVN_HOME=$mvnHome"]) {
       sh '"$MVN_HOME/bin/mvn" test'
       }
